@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dictionary</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="pageTitle">
+                    <h1>Define the Word</h1>
+                </div>
+                <div class="navbar">
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/signup">Sign-Up</a>
+                        </li>
+                    </ul>
+                </div>
+              
+            </nav>
+        </header>
+        <section class="top">
+            <form id="defineForm" action="/" method="post">
+                <p>Enter a word whose definition 
+                    you want to define</p>
+                <input type="text" id="wordToDefine" name = "word" placeholder="Enter a Word" required>
+                <br><br>
+                <input type="submit" id="searchDefinition" name="getDefinition" formmethod = "post" value="Definition">
+            </form> 
+          
+        </section>
+        <section class="bottom">
+            <p class="partOfSpeech">{{{partOfSpeech}}}</p>
+            <p>{{{definitionInsert}}}</p>
+            <br>
+            <p>{{{Synonyms}}}</p>
+            <p>{{{synoynmsList}}}</p>
+        </section>
+        <footer>
+            <div id="footerPageTitle"><p>definetheword.com</p></div>
+            <div id="footerCopyrightNote"><p>Copyright@GaryStroupApps</p></div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../main.js"></script>
+    </body>
+</html>
