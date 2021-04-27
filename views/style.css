@@ -196,5 +196,10 @@ label {
         height: auto;
     }
 
+    #word {
+        font-size: 36px;
+        font-weight: 800;
+    }
+
 }
 
