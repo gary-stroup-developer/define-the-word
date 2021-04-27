@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 const password = process.env.DB_PASS;
 
-mongoose.connect("mongodb+srv://admin-gary:"+password+"@definetheword.l53tw.mongodb.net/dictionaryDB?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.connect(password,{useNewUrlParser:true,useUnifiedTopology: true});
 const dictionarySchema = new mongoose.Schema({
     first_name: {
         type: String,
@@ -50,8 +50,8 @@ app.get("/successfulSignUp",(req,res)=>{
 })
 
 app.post("/", function(req,res){
-    const word = req.body.word;
-    const url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/" + word;
+    const wordInput = req.body.word;
+    const url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/" + wordInput;
     https.get(url,(response)=>{
         response.on("data",(data)=>{
             const dictData = JSON.parse(data);
@@ -64,7 +64,7 @@ app.post("/", function(req,res){
                 if(synonyms != undefined){
                     const synonymsLegible = synonyms.join(", ");
                     const dictDataOptions = {
-                        word,
+                        wordInput,
                         partOfSpeech,
                         definitionInsert: definition,
                         Synonyms: "Synonyms",
@@ -74,6 +74,7 @@ app.post("/", function(req,res){
                 }
                 else{
                     const dictDataOptions = {
+                        wordInput,
                         partOfSpeech,
                         definitionInsert: definition,
                         Synonyms: "Synonyms",
@@ -85,6 +86,7 @@ app.post("/", function(req,res){
             }
             else{
                 dictDataOptions = {
+                    wordInput,
                     partOfSpeech: dictData.title,
                     definitionInsert: dictData.message,
                     Synonyms: dictData.resolution,
