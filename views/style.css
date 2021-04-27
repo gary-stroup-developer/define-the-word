@@ -135,6 +135,11 @@ label {
     
 }
 
+#word {
+    font-size: 36px;
+    font-weight: 800;
+}
+
 @media only screen and (max-width: 580px) {
     .about {
         font-size: 14px;
@@ -194,11 +199,6 @@ label {
         margin-top: 75px;
         width: 100%;
         height: auto;
-    }
-
-    #word {
-        font-size: 36px;
-        font-weight: 800;
     }
 
 }
