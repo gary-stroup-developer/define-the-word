@@ -1,3 +1,4 @@
+require('dotenv').config();
 const request = require("request");
 const https = require("https");
 const express = require("express");
@@ -5,8 +6,9 @@ const bodyparser = require("body-parser");
 const hbs = require("hbs");
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
+const password = process.env.DB_PASS;
 
-mongoose.connect("mongodb://"+port+"/dictionaryDB",{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://admin-gary:"+password+"@definetheword.l53tw.mongodb.net/dictionaryDB?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology: true});
 const dictionarySchema = new mongoose.Schema({
     first_name: {
         type: String,
