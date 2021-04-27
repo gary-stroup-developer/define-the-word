@@ -64,6 +64,7 @@ app.post("/", function(req,res){
                 if(synonyms != undefined){
                     const synonymsLegible = synonyms.join(", ");
                     const dictDataOptions = {
+                        word,
                         partOfSpeech,
                         definitionInsert: definition,
                         Synonyms: "Synonyms",
